@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://v8ukpxtnnwco"]
+
+[ext_resource type="Texture2D" uid="uid://755p8rmxjyqr" path="res://Assets/Placeholders/ph_background.png" id="1_ga24n"]
+[ext_resource type="PackedScene" uid="uid://c1xeawqt3lqjn" path="res://Scenes/Players/player.tscn" id="2_qxe0n"]
+
+[node name="Space" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ga24n")
+
+[node name="Player" parent="." instance=ExtResource("2_qxe0n")]
+position = Vector2(595, 563)
