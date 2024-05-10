@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5lpf86ahccep"
+path="res://.godot/imported/Rebellion.mp3-038f2a370725de4d3862f34a639f06f5.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Finished Tracks/Rebellion.mp3"
+dest_files=["res://.godot/imported/Rebellion.mp3-038f2a370725de4d3862f34a639f06f5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

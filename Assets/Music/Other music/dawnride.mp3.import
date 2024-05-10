@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://emdykxmh7g8c"
+path="res://.godot/imported/dawnride.mp3-df369e1b594fde3e9b55d538a0bcd97b.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Other music/dawnride.mp3"
+dest_files=["res://.godot/imported/dawnride.mp3-df369e1b594fde3e9b55d538a0bcd97b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
