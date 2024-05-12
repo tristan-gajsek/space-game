@@ -1,9 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://v8ukpxtnnwco"]
+[gd_scene load_steps=11 format=3 uid="uid://v8ukpxtnnwco"]
 
 [ext_resource type="Texture2D" uid="uid://755p8rmxjyqr" path="res://Assets/Placeholders/ph_background.png" id="1_ga24n"]
+[ext_resource type="Script" path="res://Scripts/InGame/space.gd" id="1_qp8ks"]
 [ext_resource type="PackedScene" uid="uid://c1xeawqt3lqjn" path="res://Scenes/Players/player.tscn" id="2_qxe0n"]
+[ext_resource type="Texture2D" uid="uid://dak4dpck2dsd3" path="res://Assets/Spritesheets/billy spritesheet v1.png" id="3_6hxy1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkggi"]
+atlas = ExtResource("3_6hxy1")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy2q0"]
+atlas = ExtResource("3_6hxy1")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0omak"]
+atlas = ExtResource("3_6hxy1")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wb84"]
+atlas = ExtResource("3_6hxy1")
+region = Rect2(64, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_si5ec"]
+atlas = ExtResource("3_6hxy1")
+region = Rect2(192, 128, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v2iga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkggi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy2q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0omak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wb84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_si5ec")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
 
 [node name="Space" type="Node"]
+script = ExtResource("1_qp8ks")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -16,3 +62,11 @@ texture = ExtResource("1_ga24n")
 
 [node name="Player" parent="." instance=ExtResource("2_qxe0n")]
 position = Vector2(595, 563)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
+position = Vector2(0, 32)
+sprite_frames = SubResource("SpriteFrames_v2iga")
+animation = &"idle"
+frame = 2
+frame_progress = 0.929563
