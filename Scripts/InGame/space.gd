@@ -10,14 +10,6 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var viewport_width = get_viewport().size[0]
-	var spacing = floor(viewport_width / 6)
-	spawner_1.position.x = spacing
-	spawner_2.position.x = spacing * 2
-	spawner_3.position.x = spacing * 3
-	spawner_4.position.x = spacing * 4
-	spawner_5.position.x = spacing * 5
-	
 	spawner_1.add_child(construct.instantiate())
 	spawner_2.add_child(construct.instantiate())
 	spawner_3.add_child(construct.instantiate())

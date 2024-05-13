@@ -13,4 +13,5 @@ func _ready():
 	player_anim.play("default")
 
 func destroy():
+	print("Construct destroyed")
 	queue_free()
