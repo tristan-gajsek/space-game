@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dak4dpck2dsd3"
-path="res://.godot/imported/billy spritesheet v1.png-ccb258881819eef2366898e1169fc383.ctex"
+uid="uid://fcntg471fbn6"
+path="res://.godot/imported/BronzeConstructSpriteSheet.png-05efbbceaa8ad78feaab9a1f7cba1637.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Spritesheets/billy spritesheet v1.png"
-dest_files=["res://.godot/imported/billy spritesheet v1.png-ccb258881819eef2366898e1169fc383.ctex"]
+source_file="res://Assets/Spritesheets/Enemy/Construct/BronzeConstructSpriteSheet.png"
+dest_files=["res://.godot/imported/BronzeConstructSpriteSheet.png-05efbbceaa8ad78feaab9a1f7cba1637.ctex"]
 
 [params]
 

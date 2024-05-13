@@ -1,16 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1xeawqt3lqjn"]
+[gd_scene load_steps=10 format=3 uid="uid://c1xeawqt3lqjn"]
 
 [ext_resource type="Script" path="res://Scripts/Players/player.gd" id="1_hk4wv"]
-[ext_resource type="Texture2D" uid="uid://b663mspo2fams" path="res://Assets/Placeholders/ph_player.png" id="1_s75p8"]
+[ext_resource type="Texture2D" uid="uid://dak4dpck2dsd3" path="res://Assets/Spritesheets/Player/billy spritesheet v1.png" id="2_ahdgx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0etg0"]
 size = Vector2(64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkggi"]
+atlas = ExtResource("2_ahdgx")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy2q0"]
+atlas = ExtResource("2_ahdgx")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0omak"]
+atlas = ExtResource("2_ahdgx")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wb84"]
+atlas = ExtResource("2_ahdgx")
+region = Rect2(64, 128, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_si5ec"]
+atlas = ExtResource("2_ahdgx")
+region = Rect2(192, 128, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j5na1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkggi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy2q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0omak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wb84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_si5ec")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hk4wv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_s75p8")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0etg0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 32)
+sprite_frames = SubResource("SpriteFrames_j5na1")
+animation = &"idle"
+
+[node name="Laser 1" type="RayCast2D" parent="."]
+position = Vector2(-10, -19)
+exclude_parent = false
+target_position = Vector2(5, -544)
+
+[node name="Laser 2" type="RayCast2D" parent="."]
+position = Vector2(10, -19)
+exclude_parent = false
+target_position = Vector2(-9, -544)
