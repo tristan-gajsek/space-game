@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://v8ukpxtnnwco"]
+[gd_scene load_steps=7 format=3 uid="uid://v8ukpxtnnwco"]
 
 [ext_resource type="Texture2D" uid="uid://755p8rmxjyqr" path="res://Assets/Placeholders/ph_background.png" id="1_ga24n"]
 [ext_resource type="Script" path="res://Scripts/InGame/space.gd" id="1_qp8ks"]
 [ext_resource type="PackedScene" uid="uid://c1xeawqt3lqjn" path="res://Scenes/Players/player.tscn" id="2_qxe0n"]
 [ext_resource type="Texture2D" uid="uid://bl6harviyum60" path="res://icon.svg" id="5_d4c4o"]
 [ext_resource type="PackedScene" uid="uid://cb2c5wfitgnsf" path="res://Scenes/Misc/destructor.tscn" id="6_b2t4n"]
-[ext_resource type="PackedScene" uid="uid://dqxyqmor0j86c" path="res://Scenes/Misc/spawner.tscn" id="7_o6mek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eia0"]
 size = Vector2(51, 52)
@@ -37,7 +36,14 @@ scale = Vector2(0.390625, 0.390625)
 texture = ExtResource("5_d4c4o")
 
 [node name="Destructor" parent="." instance=ExtResource("6_b2t4n")]
-position = Vector2(587, 465)
+position = Vector2(586, 672)
 
-[node name="Spawner" parent="." instance=ExtResource("7_o6mek")]
-position = Vector2(178, -81)
+[node name="Spawner1" type="Node2D" parent="."]
+
+[node name="Spawner2" type="Node2D" parent="."]
+
+[node name="Spawner3" type="Node2D" parent="."]
+
+[node name="Spawner4" type="Node2D" parent="."]
+
+[node name="Spawner5" type="Node2D" parent="."]
