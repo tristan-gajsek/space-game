@@ -1,17 +1,14 @@
 extends CharacterBody2D
 
-@onready var enemy_anim = $AnimatedSprite2D
-
-const SPEED = 100.0
+const SPEED = 150.0
 const MOVEMENT = Vector2(0, 1)
+const ROTATION_SPEED = 1.0
 
 
 func _physics_process(delta):
 	position += MOVEMENT * SPEED * delta
-
-func _ready():
-	enemy_anim.play("default")
+	rotation += ROTATION_SPEED * delta
 
 func destroy():
-	print("Construct destroyed")
+	print("Asteroid destroyed")
 	queue_free()

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://v8ukpxtnnwco"]
+[gd_scene load_steps=8 format=3 uid="uid://v8ukpxtnnwco"]
 
 [ext_resource type="Texture2D" uid="uid://755p8rmxjyqr" path="res://Assets/Placeholders/ph_background.png" id="1_ga24n"]
 [ext_resource type="Script" path="res://Scripts/InGame/space.gd" id="1_qp8ks"]
 [ext_resource type="PackedScene" uid="uid://c1xeawqt3lqjn" path="res://Scenes/Players/player.tscn" id="2_qxe0n"]
+[ext_resource type="Texture2D" uid="uid://d2xo2w5o2lcpa" path="res://Assets/Sprites/Misc/Lines.png" id="3_8xybp"]
 [ext_resource type="PackedScene" uid="uid://cb2c5wfitgnsf" path="res://Scenes/Misc/destructor.tscn" id="6_b2t4n"]
+[ext_resource type="AudioStream" uid="uid://c8giwnolgfdyv" path="res://Assets/Music/Finished Tracks/Ambush.mp3" id="6_txtpk"]
+[ext_resource type="PackedScene" uid="uid://ctuityqe1vkf8" path="res://Scenes/Enemies/asteroid.tscn" id="7_l2e0d"]
 
 [node name="Space" type="Node"]
 script = ExtResource("1_qp8ks")
@@ -17,8 +20,17 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ga24n")
 
+[node name="Lines" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8xybp")
+
 [node name="Player" parent="." instance=ExtResource("2_qxe0n")]
-position = Vector2(493, 443)
+position = Vector2(480, 470)
 
 [node name="Destructor" parent="." instance=ExtResource("6_b2t4n")]
 position = Vector2(448, 568)
@@ -37,3 +49,10 @@ position = Vector2(640, -50)
 
 [node name="Spawner5" type="Node2D" parent="."]
 position = Vector2(800, -50)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(480, 270)
+stream = ExtResource("6_txtpk")
+
+[node name="Asteroid" parent="." instance=ExtResource("7_l2e0d")]
+position = Vector2(312, 101)
