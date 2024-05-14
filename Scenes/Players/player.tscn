@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1xeawqt3lqjn"]
+[gd_scene load_steps=16 format=3 uid="uid://c1xeawqt3lqjn"]
 
 [ext_resource type="Script" path="res://Scripts/Players/player.gd" id="1_hk4wv"]
 [ext_resource type="Texture2D" uid="uid://dak4dpck2dsd3" path="res://Assets/Spritesheets/Player/billy spritesheet v1.png" id="2_ahdgx"]
 [ext_resource type="Script" path="res://Scripts/Players/Laser.gd" id="3_3rlyq"]
 [ext_resource type="Texture2D" uid="uid://b5v0hoq6nt7sn" path="res://Assets/Misc/laser dot.png" id="4_1724e"]
+[ext_resource type="Texture2D" uid="uid://ckbjddyntj47l" path="res://Assets/Sprites/Misc/Crosshair.png" id="5_58uhb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0etg0"]
 size = Vector2(64, 64)
@@ -118,3 +119,8 @@ antialiased = true
 [node name="ref" type="RayCast2D" parent="."]
 visible = false
 target_position = Vector2(0, -600)
+
+[node name="Crosshair" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -166)
+texture = ExtResource("5_58uhb")
