@@ -15,6 +15,12 @@ func _ready():
 	spawner_3.add_child(construct.instantiate())
 	spawner_4.add_child(construct.instantiate())
 	spawner_5.add_child(construct.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_1.add_child(construct.instantiate())
+	spawner_2.add_child(construct.instantiate())
+	spawner_3.add_child(construct.instantiate())
+	spawner_4.add_child(construct.instantiate())
+	spawner_5.add_child(construct.instantiate())
 	pass
 
 
