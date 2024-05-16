@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://v8ukpxtnnwco"]
+[gd_scene load_steps=8 format=3 uid="uid://v8ukpxtnnwco"]
 
 [ext_resource type="Texture2D" uid="uid://755p8rmxjyqr" path="res://Assets/Placeholders/ph_background.png" id="1_ga24n"]
 [ext_resource type="Script" path="res://Scripts/InGame/space.gd" id="1_qp8ks"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d2xo2w5o2lcpa" path="res://Assets/Sprites/Misc/Lines.png" id="3_8xybp"]
 [ext_resource type="PackedScene" uid="uid://cb2c5wfitgnsf" path="res://Scenes/Misc/destructor.tscn" id="6_b2t4n"]
 [ext_resource type="AudioStream" uid="uid://c8giwnolgfdyv" path="res://Assets/Music/Finished Tracks/Ambush.mp3" id="6_txtpk"]
+[ext_resource type="PackedScene" uid="uid://bfe1456vaoa46" path="res://Scenes/Misc/borders.tscn" id="7_rkh1r"]
 
 [node name="Space" type="Node"]
 script = ExtResource("1_qp8ks")
@@ -52,3 +53,5 @@ position = Vector2(800, -50)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(480, 270)
 stream = ExtResource("6_txtpk")
+
+[node name="Borders" parent="." instance=ExtResource("7_rkh1r")]

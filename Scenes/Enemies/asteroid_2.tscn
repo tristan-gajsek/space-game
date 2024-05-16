@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://db8olphmwtrtg"]
+
+[ext_resource type="Texture2D" uid="uid://ba8wo87rbyw01" path="res://Assets/Sprites/Asteroids/Asteroid2.png" id="1_t3yby"]
+[ext_resource type="Script" path="res://Scripts/Enemies/asteroid_2.gd" id="1_tus4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07d4p"]
+size = Vector2(25, 29)
+
+[node name="Asteroid2Right" type="CharacterBody2D"]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_tus4h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_07d4p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_t3yby")

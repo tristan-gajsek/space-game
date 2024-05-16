@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfe1456vaoa46"]
+
+[ext_resource type="Script" path="res://Scripts/InGame/borders.gd" id="1_jd3x0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afnpp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itkpf"]
+
+[node name="Borders" type="Area2D"]
+disable_mode = 1
+collision_mask = 5
+script = ExtResource("1_jd3x0")
+
+[node name="l" type="CollisionShape2D" parent="."]
+position = Vector2(50, 275)
+scale = Vector2(5, 30)
+shape = SubResource("RectangleShape2D_afnpp")
+
+[node name="r" type="CollisionShape2D" parent="."]
+position = Vector2(910, 275)
+scale = Vector2(5, 30)
+shape = SubResource("RectangleShape2D_itkpf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

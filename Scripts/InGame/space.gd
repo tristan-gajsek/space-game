@@ -8,6 +8,8 @@ extends Node
 
 @onready var construct = preload("res://Scenes/Enemies/construct.tscn")
 @onready var asteroid = preload("res://Scenes/Enemies/asteroid.tscn")
+@onready var asteroid_2 = preload("res://Scenes/Enemies/asteroid_2.tscn")
+@onready var asteroid_2_r = preload("res://Scenes/Enemies/asteroid_2_right.tscn")
 
 @onready var audio_player = $AudioStreamPlayer2D
 
@@ -176,6 +178,8 @@ func spawn():
 	await get_tree().create_timer(4).timeout
 	
 	#SCREAM
+	spawner_3.add_child(asteroid_2.instantiate())
+	spawner_3.add_child(asteroid_2_r.instantiate())
 	spawner_3.add_child(asteroid.instantiate())
 	await get_tree().create_timer(0.5).timeout
 	spawner_2.add_child(asteroid.instantiate())
