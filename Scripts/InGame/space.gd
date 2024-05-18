@@ -1,5 +1,8 @@
 extends Node
 
+const WIDTH = 960
+const HEIGHT = 540
+
 @onready var spawner_1 = $Spawner1
 @onready var spawner_2 = $Spawner2
 @onready var spawner_3 = $Spawner3
@@ -31,10 +34,9 @@ func _process(_delta):
 
 func populate_background():
 	# Separate the screen into a rectangular grid of sections and put stars_per_section stars into each section
-	# TODO: Make this use the scene size and not the window size
-	var size: Vector2 = get_viewport().size
+	var size = Vector2(WIDTH, HEIGHT)
 	const section_count = 10
-	const stars_per_section = 25
+	const stars_per_section = 10
 	var section_width = int(size.x / section_count)
 	var section_height = int(size.y / section_count)
 	
@@ -61,7 +63,7 @@ func populate_background():
 		var planet_size: Vector2 = planet.get_node("Sprite2D").get_rect().size
 		planet.position = Vector2(
 			rng.randi_range(0 + planet_size.x, size.x - planet_size.x),
-			rng.randi_range(0 + planet_size.y, size.y - planet_size.y),
+			rng.randi_range(0 + planet_size.y, size.y - planet_size.y - WIDTH / 4),
 		)
 		
 		add_child(planet)
