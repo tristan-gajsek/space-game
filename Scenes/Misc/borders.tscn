@@ -8,7 +8,7 @@
 
 [node name="Borders" type="Area2D"]
 disable_mode = 1
-collision_mask = 5
+collision_mask = 8
 script = ExtResource("1_jd3x0")
 
 [node name="l" type="CollisionShape2D" parent="."]

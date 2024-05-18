@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d2xo2w5o2lcpa" path="res://Assets/Sprites/Misc/Lines.png" id="3_8xybp"]
 [ext_resource type="PackedScene" uid="uid://cb2c5wfitgnsf" path="res://Scenes/Misc/destructor.tscn" id="6_b2t4n"]
 [ext_resource type="AudioStream" uid="uid://c8giwnolgfdyv" path="res://Assets/Music/Finished Tracks/Ambush.mp3" id="6_txtpk"]
-[ext_resource type="PackedScene" path="res://Scenes/Misc/borders.tscn" id="7_rkh1r"]
+[ext_resource type="PackedScene" uid="uid://bfe1456vaoa46" path="res://Scenes/Misc/borders.tscn" id="7_rkh1r"]
 
 [node name="Space" type="Node"]
 script = ExtResource("1_qp8ks")
@@ -30,7 +30,7 @@ z_index = 3
 position = Vector2(480, 470)
 
 [node name="Destructor" parent="." instance=ExtResource("6_b2t4n")]
-position = Vector2(448, 568)
+position = Vector2(448, 645)
 
 [node name="Spawner1" type="Node2D" parent="."]
 z_index = 2

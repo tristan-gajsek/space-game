@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ckbjddyntj47l" path="res://Assets/Sprites/Misc/Crosshair.png" id="5_58uhb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0etg0"]
-size = Vector2(64, 64)
+size = Vector2(34, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jkggi"]
 atlas = ExtResource("2_ahdgx")
@@ -65,6 +65,7 @@ particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 4
 script = ExtResource("1_hk4wv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

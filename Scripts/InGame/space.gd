@@ -10,6 +10,7 @@ const HEIGHT = 540
 @onready var spawner_5 = $Spawner5
 
 @onready var construct = preload("res://Scenes/Enemies/construct.tscn")
+@onready var drifter = preload("res://Scenes/Enemies/drifter.tscn")
 @onready var asteroid = preload("res://Scenes/Enemies/asteroid.tscn")
 @onready var asteroid_2 = preload("res://Scenes/Enemies/asteroid_2.tscn")
 @onready var asteroid_2_r = preload("res://Scenes/Enemies/asteroid_2_right.tscn")
@@ -26,6 +27,8 @@ func _ready():
 	audio_player.play()
 	
 	populate_background()
+	spawner_3.add_child(drifter.instantiate())
+	await get_tree().create_timer(0.5).timeout
 	spawn()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -245,4 +248,70 @@ func spawn():
 	spawner_3.add_child(asteroid.instantiate())
 	spawner_5.add_child(asteroid.instantiate())
 	spawner_4.add_child(asteroid.instantiate())
+	await get_tree().create_timer(5.5).timeout
+	
+	#SCREAM 2
+	spawner_3.add_child(asteroid_2.instantiate())
+	spawner_3.add_child(asteroid_2_r.instantiate())
+	spawner_3.add_child(asteroid.instantiate())
 	await get_tree().create_timer(0.5).timeout
+	spawner_2.add_child(asteroid_2.instantiate())
+	spawner_4.add_child(asteroid_2_r.instantiate())
+	spawner_3.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_1.add_child(asteroid_2.instantiate())
+	spawner_3.add_child(asteroid_2.instantiate())
+	spawner_3.add_child(asteroid_2_r.instantiate())
+	spawner_5.add_child(asteroid_2_r.instantiate())
+	spawner_3.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_1.add_child(asteroid.instantiate())
+	spawner_2.add_child(asteroid.instantiate())
+	spawner_3.add_child(asteroid.instantiate())
+	spawner_4.add_child(asteroid.instantiate())
+	spawner_5.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_1.add_child(asteroid_2.instantiate())
+	spawner_2.add_child(asteroid_2.instantiate())
+	spawner_3.add_child(asteroid_2.instantiate())
+	spawner_3.add_child(asteroid_2_r.instantiate())
+	spawner_4.add_child(asteroid_2_r.instantiate())
+	spawner_5.add_child(asteroid_2_r.instantiate())
+	spawner_3.add_child(asteroid.instantiate())
+	await get_tree().create_timer(3.5).timeout
+	
+	# If I leave I want you with bologne
+	spawner_2.add_child(construct.instantiate())
+	await get_tree().create_timer(0.3).timeout
+	spawner_3.add_child(construct.instantiate())
+	await get_tree().create_timer(0.3).timeout
+	spawner_4.add_child(construct.instantiate())
+	await get_tree().create_timer(1.7).timeout
+	spawner_1.add_child(construct.instantiate())
+	await get_tree().create_timer(0.2).timeout
+	spawner_2.add_child(asteroid.instantiate())
+	spawner_4.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.8).timeout
+	spawner_5.add_child(construct.instantiate())
+	await get_tree().create_timer(0.2).timeout
+	spawner_2.add_child(asteroid.instantiate())
+	spawner_4.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.8).timeout
+	spawner_1.add_child(construct.instantiate())
+	await get_tree().create_timer(0.2).timeout
+	spawner_2.add_child(asteroid.instantiate())
+	spawner_4.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.8).timeout
+	spawner_5.add_child(construct.instantiate())
+	await get_tree().create_timer(0.2).timeout
+	spawner_2.add_child(asteroid.instantiate())
+	spawner_4.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.3).timeout
+	spawner_4.add_child(construct.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_5.add_child(construct.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_4.add_child(construct.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	
+	
