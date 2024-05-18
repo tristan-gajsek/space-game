@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bly1v820j1w8j"]
+
+[ext_resource type="Texture2D" uid="uid://cs6qweptugnpb" path="res://Assets/Sprites/Planets/Home.png" id="1_pj365"]
+
+[node name="Home" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_pj365")

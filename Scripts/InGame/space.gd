@@ -11,6 +11,9 @@ extends Node
 @onready var asteroid_2 = preload("res://Scenes/Enemies/asteroid_2.tscn")
 @onready var asteroid_2_r = preload("res://Scenes/Enemies/asteroid_2_right.tscn")
 @onready var star = preload("res://Scenes/Background/star.tscn")
+@onready var planet_fiery = preload("res://Scenes/Background/Planet/fiery.tscn")
+@onready var planet_home = preload("res://Scenes/Background/Planet/home.tscn")
+@onready var planet_shattered = preload("res://Scenes/Background/Planet/shattered.tscn")
 
 @onready var audio_player = $AudioStreamPlayer2D
 @onready var rng = RandomNumberGenerator.new()
@@ -28,7 +31,8 @@ func _process(_delta):
 
 func populate_background():
 	# Separate the screen into a rectangular grid of sections and put stars_per_section stars into each section
-	var size = get_viewport().size
+	# TODO: Make this use the scene size and not the window size
+	var size: Vector2 = get_viewport().size
 	const section_count = 10
 	const stars_per_section = 25
 	var section_width = int(size.x / section_count)
@@ -45,6 +49,22 @@ func populate_background():
 					y * section_height + section_height
 				)
 				add_child(star_instance)
+	
+	# Add planets
+	for i in range(3):
+		var planet
+		match i:
+			0: planet = planet_fiery.instantiate()
+			1: planet = planet_home.instantiate()
+			_: planet = planet_shattered.instantiate()
+			
+		var planet_size: Vector2 = planet.get_node("Sprite2D").get_rect().size
+		planet.position = Vector2(
+			rng.randi_range(0 + planet_size.x, size.x - planet_size.x),
+			rng.randi_range(0 + planet_size.y, size.y - planet_size.y),
+		)
+		
+		add_child(planet)
 
 func spawn():
 	spawner_1.add_child(asteroid.instantiate())

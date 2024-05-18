@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjw6n6wexor46"]
+
+[ext_resource type="Texture2D" uid="uid://mdcw5i1bqbfd" path="res://Assets/Sprites/Planets/Shattered.png" id="1_6wbqu"]
+
+[node name="Shattered" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_6wbqu")

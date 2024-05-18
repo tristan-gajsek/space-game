@@ -4,7 +4,7 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 
 func _process(_delta):
-	if not rng.randi() % 50:
+	if not rng.randi() % 100:
 		anim.play()
 
 func _ready():
