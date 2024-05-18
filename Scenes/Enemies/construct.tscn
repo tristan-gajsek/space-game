@@ -1,10 +1,41 @@
-[gd_scene load_steps=9 format=3 uid="uid://cps6a4bpfrvj6"]
+[gd_scene load_steps=18 format=3 uid="uid://cps6a4bpfrvj6"]
 
 [ext_resource type="Texture2D" uid="uid://fcntg471fbn6" path="res://Assets/Spritesheets/Enemy/Construct/BronzeConstructSpriteSheet.png" id="1_njn05"]
 [ext_resource type="Script" path="res://Scripts/Enemies/construct.gd" id="1_y53ch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78tq8"]
 size = Vector2(24, 29)
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_8v4tp"]
+expanded_output_ports = [0]
+input_name = "light_color"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_vls4y"]
+expanded_output_ports = [0]
+input_name = "light_position"
+
+[sub_resource type="VisualShaderNodeIf" id="VisualShaderNodeIf_wnb5e"]
+
+[sub_resource type="VisualShader" id="VisualShader_lr75w"]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+
+
+"
+graph_offset = Vector2(53.0689, 48.17)
+mode = 1
+flags/light_only = false
+nodes/light/0/position = Vector2(720, 120)
+nodes/light/2/node = SubResource("VisualShaderNodeInput_8v4tp")
+nodes/light/2/position = Vector2(100, 120)
+nodes/light/3/node = SubResource("VisualShaderNodeInput_vls4y")
+nodes/light/3/position = Vector2(80, 320)
+nodes/light/4/node = SubResource("VisualShaderNodeIf_wnb5e")
+nodes/light/4/position = Vector2(420, 100)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8dpyh"]
+shader = SubResource("VisualShader_lr75w")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fiylu"]
 atlas = ExtResource("1_njn05")
@@ -42,6 +73,28 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_ejjmv"]
+offsets = PackedFloat32Array(0.0314465, 0.616352)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4d44n"]
+gradient = SubResource("Gradient_ejjmv")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_4timd"]
+offsets = PackedFloat32Array(0, 0.72956)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i2rgk"]
+gradient = SubResource("Gradient_4timd")
+width = 20
+height = 20
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Construct" type="CharacterBody2D"]
 z_index = 4
 scale = Vector2(1.5, 1.5)
@@ -50,11 +103,32 @@ collision_mask = 0
 script = ExtResource("1_y53ch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+self_modulate = Color(0.783523, 0.783523, 0.783523, 1)
 scale = Vector2(1.2, 1.2)
 shape = SubResource("RectangleShape2D_78tq8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.686275, 0.627451, 0.627451, 1)
 z_index = 2
 texture_filter = 1
+material = SubResource("ShaderMaterial_8dpyh")
 sprite_frames = SubResource("SpriteFrames_i4n4o")
 frame_progress = 0.895649
+
+[node name="Tail" type="PointLight2D" parent="."]
+position = Vector2(0, -12.6667)
+color = Color(0.737255, 0.290196, 0.607843, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_4d44n")
+
+[node name="EyeL" type="PointLight2D" parent="."]
+position = Vector2(-7.33333, 6.66667)
+color = Color(0.737255, 0.290196, 0.607843, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_i2rgk")
+
+[node name="EyeR" type="PointLight2D" parent="."]
+position = Vector2(6.66667, 6.66667)
+color = Color(0.737255, 0.290196, 0.607843, 0.784314)
+energy = 1.5
+texture = SubResource("GradientTexture2D_i2rgk")

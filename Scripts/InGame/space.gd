@@ -399,9 +399,38 @@ func spawn():
 	spawner_2.add_child(asteroid.instantiate())
 	spawner_4.add_child(asteroid.instantiate())
 	await get_tree().create_timer(0.2).timeout
-	spawner_1.add_child(asteroid.instantiate())
-	spawner_5.add_child(asteroid.instantiate())
+	spawner_2.add_child(asteroid.instantiate())
+	spawner_4.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.7).timeout
+	spawner_2.add_child(asteroid.instantiate())
+	spawner_3.add_child(asteroid.instantiate())
 	await get_tree().create_timer(1).timeout
-
 	spawner_5.add_child(drifter.instantiate())
+	await get_tree().create_timer(3).timeout
+	spawner_3.add_child(asteroid.instantiate())
+	spawner_4.add_child(asteroid.instantiate())
+	await get_tree().create_timer(2).timeout
 	
+	spawner_2.add_child(construct.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_2.add_child(construct.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_3.add_child(construct.instantiate())
+	await get_tree().create_timer(0.3).timeout
+	spawner_3.add_child(construct.instantiate())
+	await get_tree().create_timer(0.3).timeout
+	spawner_3.add_child(construct.instantiate())
+	await get_tree().create_timer(1.4).timeout
+	spawner_4.add_child(construct.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_4.add_child(construct.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_4.add_child(construct.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_3.add_child(construct.instantiate())
+	await get_tree().create_timer(0.3).timeout
+	spawner_3.add_child(construct.instantiate())
+	await get_tree().create_timer(0.3).timeout
+	spawner_3.add_child(construct.instantiate())
+	await get_tree().create_timer(1.4).timeout
+	spawner_2.add_child(construct.instantiate())
