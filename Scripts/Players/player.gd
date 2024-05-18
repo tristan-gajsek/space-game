@@ -17,7 +17,6 @@ func _physics_process(_delta):
 		position.x = LEFT_BORDER
 	else:
 		position.x = RIGHT_BORDER
-		
 
 func _process(_delta):
 	pass

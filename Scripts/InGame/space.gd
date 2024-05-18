@@ -27,8 +27,6 @@ func _ready():
 	audio_player.play()
 	
 	populate_background()
-	spawner_3.add_child(drifter.instantiate())
-	await get_tree().create_timer(0.5).timeout
 	spawn()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -281,11 +279,11 @@ func spawn():
 	await get_tree().create_timer(3.5).timeout
 	
 	# If I leave I want you with bologne
+	spawner_1.add_child(construct.instantiate())
+	await get_tree().create_timer(0.3).timeout
 	spawner_2.add_child(construct.instantiate())
 	await get_tree().create_timer(0.3).timeout
-	spawner_3.add_child(construct.instantiate())
-	await get_tree().create_timer(0.3).timeout
-	spawner_4.add_child(construct.instantiate())
+	spawner_1.add_child(construct.instantiate())
 	await get_tree().create_timer(1.7).timeout
 	spawner_1.add_child(construct.instantiate())
 	await get_tree().create_timer(0.2).timeout
@@ -298,15 +296,9 @@ func spawn():
 	spawner_4.add_child(asteroid.instantiate())
 	await get_tree().create_timer(0.8).timeout
 	spawner_1.add_child(construct.instantiate())
-	await get_tree().create_timer(0.2).timeout
-	spawner_2.add_child(asteroid.instantiate())
-	spawner_4.add_child(asteroid.instantiate())
-	await get_tree().create_timer(0.8).timeout
+	await get_tree().create_timer(1).timeout
 	spawner_5.add_child(construct.instantiate())
-	await get_tree().create_timer(0.2).timeout
-	spawner_2.add_child(asteroid.instantiate())
-	spawner_4.add_child(asteroid.instantiate())
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(1).timeout
 	spawner_4.add_child(construct.instantiate())
 	await get_tree().create_timer(0.5).timeout
 	spawner_5.add_child(construct.instantiate())
@@ -314,4 +306,102 @@ func spawn():
 	spawner_4.add_child(construct.instantiate())
 	await get_tree().create_timer(0.5).timeout
 	
+	spawner_1.add_child(construct.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_5.add_child(construct.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_2.add_child(construct.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_4.add_child(construct.instantiate())
+	spawner_3.add_child(drifter.instantiate())
+	await get_tree().create_timer(4).timeout
+	spawner_3.add_child(drifter.instantiate())
+	await get_tree().create_timer(2).timeout
+	spawner_5.add_child(asteroid_2.instantiate())
+	spawner_1.add_child(asteroid_2_r.instantiate())
+	await get_tree().create_timer(2).timeout
+	spawner_3.add_child(drifter.instantiate())
+	await get_tree().create_timer(2).timeout
+	spawner_3.add_child(asteroid_2.instantiate())
+	spawner_3.add_child(asteroid_2_r.instantiate())
+	await get_tree().create_timer(2).timeout
+	spawner_3.add_child(drifter.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_2.add_child(construct.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_3.add_child(construct.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_4.add_child(construct.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_3.add_child(drifter.instantiate())
+	await get_tree().create_timer(5).timeout
+	
+	spawner_1.add_child(construct.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_2.add_child(construct.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_3.add_child(construct.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_4.add_child(construct.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_5.add_child(construct.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_5.add_child(construct.instantiate())
+	await get_tree().create_timer(1.5).timeout
+	spawner_4.add_child(construct.instantiate())
+	await get_tree().create_timer(2).timeout
+	spawner_3.add_child(construct.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_3.add_child(construct.instantiate())
+	await get_tree().create_timer(1.5).timeout
+	spawner_2.add_child(construct.instantiate())
+	await get_tree().create_timer(2).timeout
+	spawner_1.add_child(construct.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_1.add_child(construct.instantiate())
+	await get_tree().create_timer(6).timeout
+	
+	spawner_2.add_child(asteroid_2.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_3.add_child(asteroid_2.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_4.add_child(asteroid_2.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_1.add_child(asteroid.instantiate())
+	spawner_5.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.2).timeout
+	spawner_2.add_child(asteroid.instantiate())
+	spawner_4.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.2).timeout
+	spawner_3.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.2).timeout
+	spawner_2.add_child(asteroid.instantiate())
+	spawner_4.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.2).timeout
+	spawner_1.add_child(asteroid.instantiate())
+	spawner_5.add_child(asteroid.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_2.add_child(asteroid_2_r.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_3.add_child(asteroid_2_r.instantiate())
+	spawner_1.add_child(drifter.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_4.add_child(asteroid_2_r.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_1.add_child(asteroid.instantiate())
+	spawner_5.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.2).timeout
+	spawner_2.add_child(asteroid.instantiate())
+	spawner_4.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.2).timeout
+	spawner_3.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.2).timeout
+	spawner_2.add_child(asteroid.instantiate())
+	spawner_4.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.2).timeout
+	spawner_1.add_child(asteroid.instantiate())
+	spawner_5.add_child(asteroid.instantiate())
+	await get_tree().create_timer(1).timeout
+
+	spawner_5.add_child(drifter.instantiate())
 	

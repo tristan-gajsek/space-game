@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 150.0
+const SPEED = 200.0
 const MOVEMENT = Vector2(0, 1)
 const ROTATION_SPEED = 1.0
 
