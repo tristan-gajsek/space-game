@@ -53,6 +53,7 @@ scale = Vector2(1.2, 1.2)
 shape = SubResource("RectangleShape2D_78tq8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_i4n4o")
 frame_progress = 0.895649

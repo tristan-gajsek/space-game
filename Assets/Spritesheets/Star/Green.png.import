@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bajguowwbpkco"
-path="res://.godot/imported/Orange.png-2491368e41aedcb11f33c8b490290827.ctex"
+uid="uid://d02skufny2oy4"
+path="res://.godot/imported/Green.png-1f6383695ead5ed0db527753065ed7b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Spritesheets/Stars/Orange.png"
-dest_files=["res://.godot/imported/Orange.png-2491368e41aedcb11f33c8b490290827.ctex"]
+source_file="res://Assets/Spritesheets/Star/Green.png"
+dest_files=["res://.godot/imported/Green.png-1f6383695ead5ed0db527753065ed7b8.ctex"]
 
 [params]
 

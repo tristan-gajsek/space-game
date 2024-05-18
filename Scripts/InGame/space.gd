@@ -10,21 +10,41 @@ extends Node
 @onready var asteroid = preload("res://Scenes/Enemies/asteroid.tscn")
 @onready var asteroid_2 = preload("res://Scenes/Enemies/asteroid_2.tscn")
 @onready var asteroid_2_r = preload("res://Scenes/Enemies/asteroid_2_right.tscn")
+@onready var star = preload("res://Scenes/Background/star.tscn")
 
 @onready var audio_player = $AudioStreamPlayer2D
-
+@onready var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	audio_player.play()
 	
+	populate_background()
 	spawn()
-	
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+func populate_background():
+	# Separate the screen into a rectangular grid of sections and put stars_per_section stars into each section
+	var size = get_viewport().size
+	const section_count = 10
+	const stars_per_section = 25
+	var section_width = int(size.x / section_count)
+	var section_height = int(size.y / section_count)
+	
+	for x in section_count:
+		for y in section_count:
+			for i in stars_per_section:
+				var star_instance = star.instantiate()
+				star_instance.set_random_position(
+					x * section_width,
+					y * section_height,
+					x * section_width + section_width,
+					y * section_height + section_height
+				)
+				add_child(star_instance)
 
 func spawn():
 	spawner_1.add_child(asteroid.instantiate())
