@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5yjij7ij0egp"]
+[gd_scene load_steps=7 format=3 uid="uid://c5yjij7ij0egp"]
 
 [ext_resource type="Script" path="res://Scripts/Global/audio_player.gd" id="1_iv5xj"]
 [ext_resource type="AudioStream" uid="uid://cupkmle20i8iu" path="res://Assets/Sounds/button.wav" id="2_o40w6"]
 [ext_resource type="AudioStream" uid="uid://tja17yjbr43g" path="res://Assets/Sounds/hit.wav" id="3_mpdi2"]
 [ext_resource type="AudioStream" uid="uid://bq57xw1oetyly" path="res://Assets/Sounds/laser-shoot.wav" id="4_of3dw"]
 [ext_resource type="AudioStream" uid="uid://c3d5x8nwofbec" path="res://Assets/Sounds/drift.wav" id="5_1aid3"]
+[ext_resource type="AudioStream" uid="uid://dpgfcsofe0ol2" path="res://Assets/Sounds/explosion.wav" id="6_g8fp2"]
 
 [node name="AudioPlayer" type="Node"]
 script = ExtResource("1_iv5xj")
@@ -19,10 +20,11 @@ bus = &"SFX"
 
 [node name="Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_of3dw")
-volume_db = -20.0
 bus = &"SFX"
 
 [node name="Drift" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_1aid3")
-volume_db = -20.0
 bus = &"SFX"
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_g8fp2")

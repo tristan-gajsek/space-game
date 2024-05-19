@@ -142,14 +142,8 @@ bus = &"Music"
 [node name="ValidHitArea" parent="." instance=ExtResource("8_tq8p6")]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 300
 texture_filter = 1
 position = Vector2(480.5, 269.5)
 scale = Vector2(2.99687, 2.99444)

@@ -3,7 +3,7 @@ extends Node
 const WIDTH = 960
 const HEIGHT = 540
 
-@onready var hud_anim = $TextureRect/AnimatedSprite2D
+@onready var hud_anim = $AnimatedSprite2D
 
 # TODO: after quit, replay is bugged (game starts only after pressing 'esc') --- FIX!
 # se mi zdi da je to zarad _ready() funkcije, kr ni prvič ko pride ta scena v tree

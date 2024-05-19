@@ -11,3 +11,6 @@ func hit():
 	
 func shoot():
 	$Shoot.play()
+
+func take_damage():
+	$Explosion.play()

@@ -36,6 +36,7 @@ func _ready():
 
 func take_damage(dmg):
 	set_hp(hp - dmg)
+	AudioPlayer.take_damage()
 
 func set_hp(new_hp):
 	hp = new_hp
