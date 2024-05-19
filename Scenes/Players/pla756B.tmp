@@ -17,6 +17,9 @@ height = 96
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0etg0"]
+size = Vector2(34, 50)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jkggi"]
 atlas = ExtResource("2_ahdgx")
 region = Rect2(0, 0, 64, 128)
@@ -83,9 +86,6 @@ gravity = Vector3(0, 98, 0)
 particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0etg0"]
-size = Vector2(34, 50)
-
 [node name="Player" type="CharacterBody2D"]
 z_index = 4
 script = ExtResource("1_hk4wv")
@@ -96,6 +96,9 @@ color = Color(0.976471, 0.639216, 0.105882, 1)
 energy = 3.0
 texture = SubResource("GradientTexture2D_q8dgp")
 offset = Vector2(20, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0etg0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(0.625597, 0.625597, 0.625597, 1)
@@ -114,7 +117,7 @@ texture = SubResource("GradientTexture2D_kumtm")
 
 [node name="Laser 1" type="RayCast2D" parent="."]
 position = Vector2(-7, -25)
-target_position = Vector2(7, -452)
+target_position = Vector2(10, -452)
 collision_mask = 2
 script = ExtResource("3_1w0c5")
 
@@ -142,7 +145,7 @@ process_material = SubResource("ParticleProcessMaterial_b4dps")
 
 [node name="Laser 2" type="RayCast2D" parent="."]
 position = Vector2(7, -25)
-target_position = Vector2(-7, -452)
+target_position = Vector2(-10, -452)
 collision_mask = 2
 script = ExtResource("5_7qndn")
 
@@ -160,10 +163,3 @@ target_position = Vector2(0, -472)
 texture_filter = 1
 position = Vector2(0, -166)
 texture = ExtResource("5_58uhb")
-
-[node name="Area2D" type="Area2D" parent="." groups=["Player"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_0etg0")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://v8ukpxtnnwco"]
+[gd_scene load_steps=9 format=3 uid="uid://v8ukpxtnnwco"]
 
 [ext_resource type="Script" path="res://Scripts/InGame/space.gd" id="1_qp8ks"]
 [ext_resource type="PackedScene" uid="uid://c1xeawqt3lqjn" path="res://Scenes/Players/player.tscn" id="2_qxe0n"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://c8giwnolgfdyv" path="res://Assets/Music/Finished Tracks/Ambush.mp3" id="6_txtpk"]
 [ext_resource type="PackedScene" uid="uid://4vtsnclo7771" path="res://Scenes/Menus/pause_menu.tscn" id="7_3r1dq"]
 [ext_resource type="PackedScene" uid="uid://bfe1456vaoa46" path="res://Scenes/Misc/borders.tscn" id="7_rkh1r"]
+[ext_resource type="PackedScene" uid="uid://14v8bh3rg2b1" path="res://Scenes/Misc/valid_hit_area.tscn" id="8_tq8p6"]
 
 [node name="Space" type="Node"]
 script = ExtResource("1_qp8ks")
@@ -59,3 +60,8 @@ bus = &"Music"
 [node name="PauseMenu" parent="." instance=ExtResource("7_3r1dq")]
 visible = false
 size_flags_horizontal = 4
+
+[node name="ValidHitArea" parent="." instance=ExtResource("8_tq8p6")]
+visible = false
+
+[connection signal="death" from="Player" to="." method="_on_player_death"]

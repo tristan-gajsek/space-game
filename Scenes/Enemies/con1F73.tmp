@@ -3,9 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://fcntg471fbn6" path="res://Assets/Spritesheets/Enemy/Construct/BronzeConstructSpriteSheet.png" id="1_njn05"]
 [ext_resource type="Script" path="res://Scripts/Enemies/construct.gd" id="1_y53ch"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_78tq8"]
-size = Vector2(24, 29)
-
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_8v4tp"]
 expanded_output_ports = [0]
 input_name = "light_color"
@@ -95,17 +92,15 @@ height = 16
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78tq8"]
+size = Vector2(24, 29)
+
 [node name="Construct" type="CharacterBody2D"]
 z_index = 4
 scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_y53ch")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-self_modulate = Color(0.783523, 0.783523, 0.783523, 1)
-scale = Vector2(1.2, 1.2)
-shape = SubResource("RectangleShape2D_78tq8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(0.627451, 0.627451, 0.627451, 1)

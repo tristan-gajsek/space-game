@@ -11,6 +11,10 @@ const SPEED = 100.0
 
 @onready var player_anim = $AnimatedSprite2D
 
+var hp = 3
+signal hp_changed
+signal death
+
 # Basic movement
 func _physics_process(_delta):
 	var mouse_pos = get_global_mouse_position().x
@@ -28,3 +32,22 @@ func _process(_delta):
 func _ready():
 	player_anim.play("idle")
 
+func take_damage(dmg):
+	set_hp(hp - dmg)
+
+func set_hp(new_hp):
+	hp = new_hp
+	print(hp)
+	emit_signal("hp_changed")
+	if hp <= 0:
+		die()
+		
+func die():
+	emit_signal("death")
+	queue_free()
+	
+
+# Collision detection with enemy
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Enemy") or area.is_in_group("Asteroid"):
+		take_damage(1)
