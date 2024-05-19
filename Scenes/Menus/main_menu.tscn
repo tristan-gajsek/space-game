@@ -13,12 +13,12 @@ height = 128
 fill = 2
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="Gradient" id="Gradient_8n67l"]
+[sub_resource type="Gradient" id="Gradient_1j8ib"]
 offsets = PackedFloat32Array(0, 0.742138)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ywcer"]
-gradient = SubResource("Gradient_8n67l")
+gradient = SubResource("Gradient_1j8ib")
 width = 16
 height = 32
 fill = 1

@@ -3,6 +3,13 @@ extends Node
 const WIDTH = 960
 const HEIGHT = 540
 
+# TODO: after quit, replay is bugged (game starts only after pressing 'esc') --- FIX!
+# se mi zdi da je to zarad _ready() funkcije, kr ni prvič ko pride ta scena v tree
+
+@onready var pause_menu = $PauseMenu
+var paused = false
+var music_paused_at
+
 @onready var spawner_1 = $Spawner1
 @onready var spawner_2 = $Spawner2
 @onready var spawner_3 = $Spawner3
@@ -29,7 +36,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	if Input.is_action_just_pressed("Pause"):
+		game_paused()
 
 func populate_background():
 	# Separate the screen into a rectangular grid of sections and put stars_per_section stars into each section
@@ -69,6 +77,20 @@ func populate_background():
 
 func level_complete():
 	pass
+
+func game_paused():
+	if paused:
+		pause_menu.hide()
+		Engine.time_scale = 1
+		audio_player.play()
+		audio_player.seek(music_paused_at)
+	else:
+		pause_menu.show()
+		Engine.time_scale = 0
+		music_paused_at= audio_player.get_playback_position( )
+		audio_player.stop()
+	
+	paused = !paused
 
 func spawn():
 	audio_player.play()
