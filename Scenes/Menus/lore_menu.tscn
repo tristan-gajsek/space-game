@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://l08dfqvb6f8f"]
+
+[ext_resource type="PackedScene" uid="uid://c1xeawqt3lqjn" path="res://Scenes/Players/player.tscn" id="1_bjc2w"]
+[ext_resource type="Script" path="res://Scripts/Menus/lore_menu.gd" id="1_w6lyv"]
+[ext_resource type="Script" path="res://Scripts/Players/player_static.gd" id="2_3inxr"]
+[ext_resource type="Script" path="res://Scripts/Menus/Intro_Text.gd" id="3_0hkr2"]
+
+[node name="LoreMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_w6lyv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 540.0
+color = Color(0, 0, 0, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_bjc2w")]
+z_index = 3
+position = Vector2(480, 470)
+script = ExtResource("2_3inxr")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = 4
+layout_mode = 0
+offset_left = 282.0
+offset_top = 190.0
+offset_right = 681.0
+offset_bottom = 327.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+z_index = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 286.0
+offset_top = 213.0
+offset_right = 674.0
+offset_bottom = 288.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Man is born free, and everywhere he is in chains.
+Today we break those chains. 
+Good luck soldier."
+horizontal_alignment = 1
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("3_0hkr2")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 811.0
+offset_top = 498.0
+offset_right = 929.0
+offset_bottom = 521.0
+text = "(SPACE) To Skip"

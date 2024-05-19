@@ -2,33 +2,23 @@ extends Control
 
 const WIDTH = 960
 const HEIGHT = 540
-
 @onready var star = preload("res://Scenes/Background/star.tscn")
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	populate_background()
 
-func _on_play_btn_pressed():
-	AudioPlayer.button()
-	get_tree().change_scene_to_file("res://Scenes/Menus/lore_menu.tscn")
+func _process(_delta):
+	if Input.is_action_just_pressed("Skip"):
+		get_tree().change_scene_to_file("res://Scenes/Areas/space.tscn")
 
-
-func _on_options_btn_pressed():
-	AudioPlayer.button()
-	get_tree().change_scene_to_file("res://Scenes/Menus/options_menu.tscn")
-
-
-func _on_quit_btn_pressed():
-	AudioPlayer.button()
-	get_tree().quit()
-	
 func populate_background():
 	# Separate the screen into a rectangular grid of sections and put stars_per_section stars into each section
-	var win_size = Vector2(WIDTH, HEIGHT)
+	var size = Vector2(WIDTH, HEIGHT)
 	const section_count = 10
-	const stars_per_section = 5
-	var section_width = int(win_size.x / section_count)
-	var section_height = int(win_size.y / section_count)
+	const stars_per_section = 10
+	var section_width = int(size.x / section_count)
+	var section_height = int(size.y / section_count)
 	
 	for x in section_count:
 		for y in section_count:

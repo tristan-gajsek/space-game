@@ -88,7 +88,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"3hp",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [node name="Space" type="Node"]
@@ -142,7 +142,7 @@ bus = &"Music"
 [node name="ValidHitArea" parent="." instance=ExtResource("8_tq8p6")]
 visible = false
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="HUD" type="AnimatedSprite2D" parent="."]
 z_index = 300
 texture_filter = 1
 position = Vector2(480.5, 269.5)
@@ -152,6 +152,7 @@ animation = &"3hp"
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_3r1dq")]
 visible = false
+z_index = 6
 size_flags_horizontal = 4
 
 [connection signal="death" from="Player" to="." method="_on_player_death"]
