@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 const LEFT_BORDER = 150
 const RIGHT_BORDER = 810
+const CENTER = Vector2(480, 270)
+const TOP = Vector2(480, -100)
+const SPEED = 100.0
 
 @onready var laser_1 = $"Laser 1"
 @onready var laser_2 = $"Laser 2"

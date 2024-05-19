@@ -24,10 +24,7 @@ const HEIGHT = 540
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	audio_player.play()
-	
 	populate_background()
-	spawner_3.add_child(drifter.instantiate())
 	spawn()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -70,7 +67,12 @@ func populate_background():
 		
 		add_child(planet)
 
+func level_complete():
+	pass
+
 func spawn():
+	audio_player.play()
+	
 	spawner_1.add_child(asteroid.instantiate())
 	await get_tree().create_timer(1).timeout
 	spawner_3.add_child(asteroid.instantiate())
@@ -427,11 +429,55 @@ func spawn():
 	spawner_4.add_child(construct.instantiate())
 	await get_tree().create_timer(0.5).timeout
 	spawner_4.add_child(construct.instantiate())
+	await get_tree().create_timer(0.8).timeout
+	spawner_3.add_child(construct.instantiate())
+	await get_tree().create_timer(0.3).timeout
+	spawner_3.add_child(construct.instantiate())
+	await get_tree().create_timer(0.3).timeout
+	spawner_3.add_child(construct.instantiate())
+	await get_tree().create_timer(1.6).timeout
+	spawner_2.add_child(construct.instantiate())
+	await get_tree().create_timer(5).timeout
+	
+	spawner_2.add_child(construct.instantiate())
+	await get_tree().create_timer(1).timeout
+	spawner_4.add_child(construct.instantiate())
 	await get_tree().create_timer(1).timeout
 	spawner_3.add_child(construct.instantiate())
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(1).timeout
 	spawner_3.add_child(construct.instantiate())
-	await get_tree().create_timer(0.3).timeout
-	spawner_3.add_child(construct.instantiate())
-	await get_tree().create_timer(1.4).timeout
-	spawner_2.add_child(construct.instantiate())
+	await get_tree().create_timer(2).timeout
+	
+	spawner_1.add_child(asteroid_2_r.instantiate())
+	spawner_2.add_child(asteroid_2_r.instantiate())
+	spawner_3.add_child(asteroid_2_r.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_5.add_child(asteroid_2.instantiate())
+	spawner_4.add_child(asteroid_2.instantiate())
+	spawner_3.add_child(asteroid_2.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_2.add_child(asteroid_2_r.instantiate())
+	spawner_3.add_child(asteroid_2_r.instantiate())
+	spawner_4.add_child(asteroid_2_r.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_2.add_child(asteroid_2.instantiate())
+	spawner_3.add_child(asteroid_2.instantiate())
+	spawner_4.add_child(asteroid_2.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_1.add_child(asteroid_2_r.instantiate())
+	spawner_2.add_child(asteroid_2_r.instantiate())
+	spawner_3.add_child(asteroid_2_r.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_5.add_child(asteroid_2.instantiate())
+	spawner_4.add_child(asteroid_2.instantiate())
+	spawner_3.add_child(asteroid_2.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_1.add_child(asteroid.instantiate())
+	spawner_3.add_child(asteroid.instantiate())
+	spawner_5.add_child(asteroid.instantiate())
+	await get_tree().create_timer(0.5).timeout
+	spawner_2.add_child(asteroid.instantiate())
+	spawner_4.add_child(asteroid.instantiate())
+	await get_tree().create_timer(2).timeout
+
+	level_complete()
