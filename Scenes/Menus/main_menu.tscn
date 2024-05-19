@@ -84,6 +84,11 @@ layout_mode = 2
 text = "Options
 "
 
+[node name="InfoBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Information
+"
+
 [node name="QuitBtn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
@@ -98,4 +103,5 @@ texture = SubResource("GradientTexture2D_ywcer")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/InfoBtn" to="." method="_on_info_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
