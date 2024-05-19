@@ -3,6 +3,8 @@ extends Node
 const WIDTH = 960
 const HEIGHT = 540
 
+@onready var hud_anim = $TextureRect/AnimatedSprite2D
+
 # TODO: after quit, replay is bugged (game starts only after pressing 'esc') --- FIX!
 # se mi zdi da je to zarad _ready() funkcije, kr ni prvič ko pride ta scena v tree
 
@@ -34,6 +36,13 @@ var music_paused_at
 func _ready():
 	populate_background()
 	spawn()
+	hud_anim.play("3hp")
+	
+func _on_player_hp_at_1():
+	hud_anim.play("1hp")
+
+func _on_player_hp_at_2():
+	hud_anim.play("2hp")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -95,6 +104,7 @@ func game_paused():
 
 func _on_player_death():
 	get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
+	
 
 func spawn():
 	audio_player.play()
@@ -507,4 +517,3 @@ func spawn():
 	await get_tree().create_timer(2).timeout
 
 	level_complete()
-

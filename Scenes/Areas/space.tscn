@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://v8ukpxtnnwco"]
+[gd_scene load_steps=20 format=3 uid="uid://v8ukpxtnnwco"]
 
 [ext_resource type="Script" path="res://Scripts/InGame/space.gd" id="1_qp8ks"]
 [ext_resource type="PackedScene" uid="uid://c1xeawqt3lqjn" path="res://Scenes/Players/player.tscn" id="2_qxe0n"]
@@ -7,7 +7,89 @@
 [ext_resource type="AudioStream" uid="uid://c8giwnolgfdyv" path="res://Assets/Music/Finished Tracks/Ambush.mp3" id="6_txtpk"]
 [ext_resource type="PackedScene" uid="uid://4vtsnclo7771" path="res://Scenes/Menus/pause_menu.tscn" id="7_3r1dq"]
 [ext_resource type="PackedScene" uid="uid://bfe1456vaoa46" path="res://Scenes/Misc/borders.tscn" id="7_rkh1r"]
+[ext_resource type="Texture2D" uid="uid://byqgu7a2xtti0" path="res://Assets/Misc/space hud.png" id="8_k86ii"]
 [ext_resource type="PackedScene" uid="uid://14v8bh3rg2b1" path="res://Scenes/Misc/valid_hit_area.tscn" id="8_tq8p6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvk53"]
+atlas = ExtResource("8_k86ii")
+region = Rect2(640, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7mha"]
+atlas = ExtResource("8_k86ii")
+region = Rect2(640, 180, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xeov"]
+atlas = ExtResource("8_k86ii")
+region = Rect2(640, 360, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0elcn"]
+atlas = ExtResource("8_k86ii")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul6s6"]
+atlas = ExtResource("8_k86ii")
+region = Rect2(320, 180, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21jvc"]
+atlas = ExtResource("8_k86ii")
+region = Rect2(320, 360, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmjq3"]
+atlas = ExtResource("8_k86ii")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64l0e"]
+atlas = ExtResource("8_k86ii")
+region = Rect2(0, 180, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdt5u"]
+atlas = ExtResource("8_k86ii")
+region = Rect2(0, 360, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_17tto"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvk53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7mha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xeov")
+}],
+"loop": true,
+"name": &"1hp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0elcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul6s6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21jvc")
+}],
+"loop": true,
+"name": &"2hp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmjq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64l0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdt5u")
+}],
+"loop": true,
+"name": &"3hp",
+"speed": 5.0
+}]
 
 [node name="Space" type="Node"]
 script = ExtResource("1_qp8ks")
@@ -57,11 +139,27 @@ bus = &"Music"
 
 [node name="Borders" parent="." instance=ExtResource("7_rkh1r")]
 
+[node name="ValidHitArea" parent="." instance=ExtResource("8_tq8p6")]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect"]
+texture_filter = 1
+position = Vector2(480.5, 269.5)
+scale = Vector2(2.99687, 2.99444)
+sprite_frames = SubResource("SpriteFrames_17tto")
+animation = &"3hp"
+
 [node name="PauseMenu" parent="." instance=ExtResource("7_3r1dq")]
 visible = false
 size_flags_horizontal = 4
 
-[node name="ValidHitArea" parent="." instance=ExtResource("8_tq8p6")]
-visible = false
-
 [connection signal="death" from="Player" to="." method="_on_player_death"]
+[connection signal="hp_at_1" from="Player" to="." method="_on_player_hp_at_1"]
+[connection signal="hp_at_2" from="Player" to="." method="_on_player_hp_at_2"]

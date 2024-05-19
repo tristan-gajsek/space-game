@@ -14,6 +14,8 @@ const SPEED = 100.0
 var hp = 3
 signal hp_changed
 signal death
+signal hp_at_2
+signal hp_at_1
 
 # Basic movement
 func _physics_process(_delta):
@@ -41,12 +43,15 @@ func set_hp(new_hp):
 	emit_signal("hp_changed")
 	if hp <= 0:
 		die()
-		
+	elif hp == 2:
+		emit_signal("hp_at_2")
+	elif hp == 1:
+		emit_signal("hp_at_1")
+
 func die():
 	emit_signal("death")
 	queue_free()
 	
-
 # Collision detection with enemy
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Enemy") or area.is_in_group("Asteroid"):
