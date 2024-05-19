@@ -106,6 +106,10 @@ func _on_player_death():
 	get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
 	
 
+func _on_pause_menu_quit():
+	get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
+	game_paused()
+
 func spawn():
 	audio_player.play()
 	
@@ -517,3 +521,4 @@ func spawn():
 	await get_tree().create_timer(2).timeout
 
 	level_complete()
+

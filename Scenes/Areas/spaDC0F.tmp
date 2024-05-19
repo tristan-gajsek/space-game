@@ -151,10 +151,10 @@ sprite_frames = SubResource("SpriteFrames_17tto")
 animation = &"3hp"
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_3r1dq")]
+process_mode = 2
 visible = false
 size_flags_horizontal = 4
 
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="hp_at_1" from="Player" to="." method="_on_player_hp_at_1"]
 [connection signal="hp_at_2" from="Player" to="." method="_on_player_hp_at_2"]
-[connection signal="quit" from="PauseMenu" to="." method="_on_pause_menu_quit"]
