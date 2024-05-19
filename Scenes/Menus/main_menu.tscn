@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://cktm2mot2xy4w"]
+[gd_scene load_steps=7 format=3 uid="uid://cktm2mot2xy4w"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/main_menu.gd" id="1_ay0kq"]
 [ext_resource type="Texture2D" uid="uid://3pymy55t8wjk" path="res://Assets/Sprites/Menus/TittleMenu.png" id="2_5oeyv"]
+
+[sub_resource type="Gradient" id="Gradient_wpjsg"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4swnf"]
+gradient = SubResource("Gradient_wpjsg")
+width = 600
+height = 128
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_8n67l"]
+offsets = PackedFloat32Array(0, 0.742138)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ywcer"]
+gradient = SubResource("Gradient_8n67l")
+width = 16
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -12,7 +33,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ay0kq")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0.392157, 0.392157, 0.470588, 1)
+z_index = 10
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -22,7 +54,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_5oeyv")
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(491, 160)
+scale = Vector2(1.95333, 2.26562)
+color = Color(0.737255, 0.290196, 0.607843, 1)
+energy = 6.0
+texture = SubResource("GradientTexture2D_4swnf")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
+z_index = 10
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.361
@@ -47,6 +87,14 @@ text = "Options
 [node name="QuitBtn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="Guns" type="PointLight2D" parent="MarginContainer"]
+visible = false
+position = Vector2(0, -23.75)
+scale = Vector2(5.5, 1.14063)
+color = Color(0.955205, 1, 0.557913, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_ywcer")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]

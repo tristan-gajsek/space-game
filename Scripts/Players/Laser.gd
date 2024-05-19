@@ -32,6 +32,7 @@ func _physics_process(_delta: float) -> void:
 	var _cast_point := target_position
 	force_raycast_update()
 	
+	
 #	if is_colliding() and is_casting and not has_collided:
 #		cast_point = to_local(get_collision_point())
 		

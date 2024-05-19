@@ -27,6 +27,7 @@ func _ready():
 	audio_player.play()
 	
 	populate_background()
+	spawner_3.add_child(drifter.instantiate())
 	spawn()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

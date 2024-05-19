@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
 @onready var enemy_anim = $AnimatedSprite2D
+@onready var l = $BackL
+@onready var r = $BackR
+@onready var m = $BackM
+@onready var face = $Face
 
 const MOVEMENT = Vector2(0, 1)
 
@@ -22,3 +26,7 @@ func wake():
 	AudioPlayer.drift()
 	enemy_anim.play("drift")
 	speed = speed * 3
+	l.show()
+	r.show()
+	m.show()
+	face.show()
