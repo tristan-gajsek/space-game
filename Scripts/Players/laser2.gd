@@ -2,13 +2,6 @@ extends RayCast2D
 
 @onready var laser_1 = $"."
 
-# TODO bug fixes
-
-# TODO Particles
-# @onready var casting_particles: GPUParticles2D = $CastingParticles
-# @onready var collision_particles_2: GPUParticles2D = $CollisionParticles2
-# @onready var beam_particle_2d: GPUParticles2D = $BeamParticle2D
-
 var is_casting: bool = false
 var cast_timer: Timer
 var has_collided = false
@@ -16,10 +9,7 @@ var collision_point: Vector2
 
 func _ready():
 	is_casting = false
-	#cast_timer = Timer.new()
-	#add_child(cast_timer)
-	#cast_timer.connect("timeout", _on_cast_timer_timeout, 0)
-	$Line2D.width = 0  # Set initial width to 0
+	$Line2D.width = 0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -31,17 +21,12 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(_delta: float) -> void:
 	var _cast_point := target_position
 	force_raycast_update()
-	
-	
-#	if is_colliding() and is_casting and not has_collided:
-#		cast_point = to_local(get_collision_point())
 		
 	if is_colliding() and Input.is_action_pressed("ui_left") and not has_collided:
 		collision_point = to_local(get_collision_point())
 		if laser_1.get_collider() != null:
-			laser_1.get_collider().queue_free()
+			# laser_1.get_collider().queue_free()
 			print("Hit")
-			AudioPlayer.hit() # This doesn't work
 			has_collided = true
 		else:
 			print("Miss!")
@@ -63,8 +48,9 @@ func update_line() -> void:
 	if is_colliding() and not has_collided:
 		collision_point = to_local(get_collision_point())
 		if laser_1.get_collider() != null:
-			laser_1.get_collider().queue_free()
+			# laser_1.get_collider().queue_free()
 			has_collided = true
+			AudioPlayer.hit() # This works
 			$Line2D.points[1] = collision_point
 			print("Hit")
 	else:
@@ -74,10 +60,6 @@ func update_line() -> void:
 func appear() -> void:
 	var tween = create_tween()
 	tween.tween_property($Line2D, "width", 3.0, 0.01)
-	#cast_timer.start(0.05)
-
-# func _on_cast_timer_timeout():
-#	disapear()
 
 func disapear() -> void:
 	var tween = create_tween()

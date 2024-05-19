@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://c1xeawqt3lqjn"]
+[gd_scene load_steps=21 format=3 uid="uid://c1xeawqt3lqjn"]
 
 [ext_resource type="Script" path="res://Scripts/Players/player.gd" id="1_hk4wv"]
 [ext_resource type="Texture2D" uid="uid://dak4dpck2dsd3" path="res://Assets/Spritesheets/Player/billy spritesheet v1.png" id="2_ahdgx"]
-[ext_resource type="Script" path="res://Scripts/Players/Laser.gd" id="3_3rlyq"]
+[ext_resource type="Script" path="res://Scripts/Players/laser1.gd" id="3_1w0c5"]
 [ext_resource type="Texture2D" uid="uid://b5v0hoq6nt7sn" path="res://Assets/Misc/laser dot.png" id="4_1724e"]
+[ext_resource type="Script" path="res://Scripts/Players/laser2.gd" id="5_7qndn"]
 [ext_resource type="Texture2D" uid="uid://ckbjddyntj47l" path="res://Assets/Sprites/Misc/Crosshair.png" id="5_58uhb"]
 
 [sub_resource type="Gradient" id="Gradient_l6rv5"]
@@ -115,13 +116,13 @@ energy = 2.0
 texture = SubResource("GradientTexture2D_kumtm")
 
 [node name="Laser 1" type="RayCast2D" parent="."]
-position = Vector2(-10, -19)
-target_position = Vector2(10, -542)
+position = Vector2(-7, -25)
+target_position = Vector2(10, -452)
 collision_mask = 2
-script = ExtResource("3_3rlyq")
+script = ExtResource("3_1w0c5")
 
 [node name="Line2D" type="Line2D" parent="Laser 1"]
-points = PackedVector2Array(0, 0, 0, -16)
+points = PackedVector2Array(0, 0, 1, -40)
 width = 1.0
 default_color = Color(1, 1, 0.109804, 1)
 antialiased = true
@@ -143,20 +144,20 @@ position = Vector2(13, 2)
 process_material = SubResource("ParticleProcessMaterial_b4dps")
 
 [node name="Laser 2" type="RayCast2D" parent="."]
-position = Vector2(10, -19)
-target_position = Vector2(-10, -542)
+position = Vector2(7, -25)
+target_position = Vector2(-10, -452)
 collision_mask = 2
-script = ExtResource("3_3rlyq")
+script = ExtResource("5_7qndn")
 
 [node name="Line2D" type="Line2D" parent="Laser 2"]
-points = PackedVector2Array(0, 0, 0, -16)
+points = PackedVector2Array(0, 0, -1, -40)
 width = 1.0
 default_color = Color(1, 1, 0.109804, 1)
 antialiased = true
 
 [node name="ref" type="RayCast2D" parent="."]
 visible = false
-target_position = Vector2(0, -600)
+target_position = Vector2(0, -472)
 
 [node name="Crosshair" type="Sprite2D" parent="."]
 texture_filter = 1
