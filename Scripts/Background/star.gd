@@ -21,7 +21,3 @@ func set_random_position(x_min, y_min, x_max, y_max):
 		rng.randi_range(x_min, x_max + 1),
 		rng.randi_range(y_min, y_max + 1)
 	)
-
-func destroy():
-	print("Star destroyed")
-	queue_free()

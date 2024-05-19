@@ -25,6 +25,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			# self.is_casting = event.pressed
+			AudioPlayer.shoot()
 			update_line()
 
 func _physics_process(_delta: float) -> void:
@@ -39,6 +40,7 @@ func _physics_process(_delta: float) -> void:
 		if laser_1.get_collider() != null:
 			laser_1.get_collider().queue_free()
 			print("Hit")
+			AudioPlayer.hit() # This doesn't work
 			has_collided = true
 		else:
 			print("Miss!")

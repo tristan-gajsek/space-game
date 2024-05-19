@@ -19,5 +19,6 @@ func destroy():
 	queue_free()
 
 func wake():
+	AudioPlayer.drift()
 	enemy_anim.play("drift")
 	speed = speed * 3

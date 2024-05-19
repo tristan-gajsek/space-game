@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cj6oyn8bst245"]
 
 [ext_resource type="Script" path="res://Scripts/Background/planet.gd" id="1_bbbav"]
-[ext_resource type="Texture2D" uid="uid://78snmvh0v8yq" path="res://Assets/Sprites/Planets/Firey.png" id="1_lyp7v"]
+[ext_resource type="Texture2D" uid="uid://c5xcy3ygh1wop" path="res://Assets/Sprites/Planets/Firey.png" id="1_lyp7v"]
 
 [node name="Fiery" type="Node2D"]
 script = ExtResource("1_bbbav")

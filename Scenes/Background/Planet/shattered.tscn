@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjw6n6wexor46"]
 
-[ext_resource type="Texture2D" uid="uid://lvd6s1tk3mh3" path="res://Assets/Sprites/Planets/Shattered.png" id="1_6wbqu"]
+[ext_resource type="Texture2D" uid="uid://mdcw5i1bqbfd" path="res://Assets/Sprites/Planets/Shattered.png" id="1_6wbqu"]
 [ext_resource type="Script" path="res://Scripts/Background/planet.gd" id="1_ot5qy"]
 
 [node name="Shattered" type="Node2D"]
