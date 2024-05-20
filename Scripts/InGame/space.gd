@@ -12,6 +12,9 @@ const HEIGHT = 540
 var paused = false
 var music_paused_at
 
+# var music_speed = 1
+# var engine_speed = 1
+
 @onready var spawner_1 = $Spawner1
 @onready var spawner_2 = $Spawner2
 @onready var spawner_3 = $Spawner3
@@ -38,6 +41,8 @@ func _ready():
 	populate_background()
 	spawn()
 	hud_anim.play("3hp")
+	# Engine.time_scale = 1
+	# audio_player.pitch_scale = 1
 	
 func _on_player_hp_at_1():
 	hud_anim.play("1hp")

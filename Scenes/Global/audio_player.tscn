@@ -28,3 +28,4 @@ bus = &"SFX"
 
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_g8fp2")
+bus = &"SFX"

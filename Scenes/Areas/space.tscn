@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://v8ukpxtnnwco"]
+[gd_scene load_steps=21 format=3 uid="uid://v8ukpxtnnwco"]
 
 [ext_resource type="Script" path="res://Scripts/InGame/space.gd" id="1_qp8ks"]
 [ext_resource type="PackedScene" uid="uid://c1xeawqt3lqjn" path="res://Scenes/Players/player.tscn" id="2_qxe0n"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bfe1456vaoa46" path="res://Scenes/Misc/borders.tscn" id="7_rkh1r"]
 [ext_resource type="Texture2D" uid="uid://byqgu7a2xtti0" path="res://Assets/Misc/space hud.png" id="8_k86ii"]
 [ext_resource type="PackedScene" uid="uid://14v8bh3rg2b1" path="res://Scenes/Misc/valid_hit_area.tscn" id="8_tq8p6"]
+[ext_resource type="Script" path="res://Scripts/Misc/DevModeSlider.gd" id="10_cm6s1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pvk53"]
 atlas = ExtResource("8_k86ii")
@@ -155,7 +156,17 @@ visible = false
 z_index = 6
 size_flags_horizontal = 4
 
+[node name="DevModeSlider" type="VSlider" parent="."]
+visible = false
+offset_left = 21.0
+offset_top = 157.0
+offset_right = 43.0
+offset_bottom = 386.0
+max_value = 5.0
+script = ExtResource("10_cm6s1")
+
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="hp_at_1" from="Player" to="." method="_on_player_hp_at_1"]
 [connection signal="hp_at_2" from="Player" to="." method="_on_player_hp_at_2"]
 [connection signal="quit" from="PauseMenu" to="." method="_on_pause_menu_quit"]
+[connection signal="value_changed" from="DevModeSlider" to="DevModeSlider" method="_on_value_changed"]
