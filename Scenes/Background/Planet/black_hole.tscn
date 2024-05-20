@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://drnito6dayf5g"]
+
+[ext_resource type="Script" path="res://Scripts/Background/planet.gd" id="1_j8itd"]
+[ext_resource type="Texture2D" uid="uid://lthgbl5juf53" path="res://Assets/Spritesheets/Misc/black_hole.png" id="2_8o6o7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1q5g"]
+atlas = ExtResource("2_8o6o7")
+region = Rect2(0, 0, 74, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u30m"]
+atlas = ExtResource("2_8o6o7")
+region = Rect2(74, 0, 74, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk6ak"]
+atlas = ExtResource("2_8o6o7")
+region = Rect2(148, 0, 74, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cxvd"]
+atlas = ExtResource("2_8o6o7")
+region = Rect2(222, 0, 74, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo6ar"]
+atlas = ExtResource("2_8o6o7")
+region = Rect2(296, 0, 74, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyi07"]
+atlas = ExtResource("2_8o6o7")
+region = Rect2(370, 0, 74, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xosrq"]
+atlas = ExtResource("2_8o6o7")
+region = Rect2(444, 0, 74, 74)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgpi6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1q5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u30m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk6ak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cxvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo6ar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyi07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xosrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyi07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo6ar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cxvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk6ak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u30m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1q5g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BlackHole" type="Node2D"]
+script = ExtResource("1_j8itd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_hgpi6")
+autoplay = "default"

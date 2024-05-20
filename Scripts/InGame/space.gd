@@ -27,6 +27,7 @@ var music_paused_at
 @onready var planet_fiery = preload("res://Scenes/Background/Planet/fiery.tscn")
 @onready var planet_home = preload("res://Scenes/Background/Planet/home.tscn")
 @onready var planet_shattered = preload("res://Scenes/Background/Planet/shattered.tscn")
+@onready var black_hole = preload("res://Scenes/Background/Planet/black_hole.tscn")
 @onready var health_kit = preload("res://Scenes/Misc/health_kit.tscn")
 
 @onready var audio_player = $AudioStreamPlayer2D
@@ -70,14 +71,20 @@ func populate_background():
 				add_child(star_instance)
 	
 	# Add planets
-	for i in range(3):
+	for i in range(4):
 		var planet
 		match i:
 			0: planet = planet_fiery.instantiate()
 			1: planet = planet_home.instantiate()
-			_: planet = planet_shattered.instantiate()
+			2: planet = planet_shattered.instantiate()
+			_: planet = black_hole.instantiate()
+		
+		var planet_size: Vector2
+		if i == 3:
+			planet_size = Vector2(50, 50)
+		else:
+			planet_size = planet.get_node("Sprite2D").get_rect().size
 			
-		var planet_size: Vector2 = planet.get_node("Sprite2D").get_rect().size
 		planet.position = Vector2(
 			rng.randi_range(0 + planet_size.x, size.x - planet_size.x),
 			rng.randi_range(0 + planet_size.y, size.y - planet_size.y - WIDTH / 4),

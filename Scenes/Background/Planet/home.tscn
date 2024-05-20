@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bly1v820j1w8j"]
 
 [ext_resource type="Script" path="res://Scripts/Background/planet.gd" id="1_bu38t"]
-[ext_resource type="Texture2D" uid="uid://cs6qweptugnpb" path="res://Assets/Sprites/Planets/Home.png" id="1_pj365"]
+[ext_resource type="Texture2D" uid="uid://q8xe1moi8wfx" path="res://Assets/Sprites/Planets/Home.png" id="1_pj365"]
 
 [node name="Home" type="Node2D"]
 script = ExtResource("1_bu38t")
