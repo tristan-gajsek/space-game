@@ -5,8 +5,6 @@ const HEIGHT = 540
 
 @onready var hud_anim = $HUD
 
-# TODO: Bug fix, player moves on pause.
-
 # Pause menu variables
 @onready var pause_menu = $PauseMenu
 var paused = false
@@ -103,11 +101,13 @@ func level_complete():
 func game_paused():
 	if paused:
 		pause_menu.hide()
+		get_tree().paused = false
 		Engine.time_scale = 1
 		audio_player.play()
 		audio_player.seek(music_paused_at)
 	else:
 		pause_menu.show()
+		get_tree().paused = true
 		Engine.time_scale = 0
 		music_paused_at= audio_player.get_playback_position( )
 		audio_player.stop()
@@ -118,8 +118,8 @@ func _on_player_death():
 	get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
 
 func _on_pause_menu_quit():
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
-	game_paused()
 
 func spawn():
 	audio_player.play()
@@ -540,4 +540,3 @@ func spawn():
 	await get_tree().create_timer(2).timeout
 
 	level_complete()
-

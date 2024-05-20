@@ -152,12 +152,12 @@ sprite_frames = SubResource("SpriteFrames_17tto")
 animation = &"3hp"
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_3r1dq")]
+process_mode = 2
 visible = false
 z_index = 6
 size_flags_horizontal = 4
 
 [node name="DevModeSlider" type="VSlider" parent="."]
-visible = false
 offset_left = 21.0
 offset_top = 157.0
 offset_right = 43.0
@@ -169,4 +169,5 @@ script = ExtResource("10_cm6s1")
 [connection signal="hp_at_1" from="Player" to="." method="_on_player_hp_at_1"]
 [connection signal="hp_at_2" from="Player" to="." method="_on_player_hp_at_2"]
 [connection signal="quit" from="PauseMenu" to="." method="_on_pause_menu_quit"]
+[connection signal="value_changed" from="DevModeSlider" to="." method="_on_dev_mode_slider_value_changed"]
 [connection signal="value_changed" from="DevModeSlider" to="DevModeSlider" method="_on_value_changed"]

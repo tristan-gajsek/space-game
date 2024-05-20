@@ -20,6 +20,7 @@ bus = &"SFX"
 
 [node name="Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_of3dw")
+volume_db = -15.0
 bus = &"SFX"
 
 [node name="Drift" type="AudioStreamPlayer" parent="."]
@@ -28,4 +29,5 @@ bus = &"SFX"
 
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_g8fp2")
+volume_db = -15.0
 bus = &"SFX"
