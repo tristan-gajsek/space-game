@@ -27,6 +27,7 @@ var music_paused_at
 @onready var planet_fiery = preload("res://Scenes/Background/Planet/fiery.tscn")
 @onready var planet_home = preload("res://Scenes/Background/Planet/home.tscn")
 @onready var planet_shattered = preload("res://Scenes/Background/Planet/shattered.tscn")
+@onready var health_kit = preload("res://Scenes/Misc/health_kit.tscn")
 
 @onready var audio_player = $AudioStreamPlayer2D
 @onready var rng = RandomNumberGenerator.new()
@@ -149,6 +150,8 @@ func spawn():
 	spawner_5.add_child(asteroid.instantiate())
 	await get_tree().create_timer(1.5).timeout
 	
+	# spawner_1.add_child(health_kit.instantiate())
+	
 	spawner_3.add_child(construct.instantiate())
 	await get_tree().create_timer(0.5).timeout
 	spawner_3.add_child(construct.instantiate())
@@ -208,6 +211,8 @@ func spawn():
 	await get_tree().create_timer(1).timeout
 	spawner_5.add_child(construct.instantiate())
 	await get_tree().create_timer(1).timeout
+	
+	# spawner_5.add_child(health_kit.instantiate())
 	
 	spawner_3.add_child(construct.instantiate())
 	await get_tree().create_timer(1).timeout
@@ -288,6 +293,8 @@ func spawn():
 	spawner_5.add_child(asteroid.instantiate())
 	spawner_4.add_child(asteroid.instantiate())
 	await get_tree().create_timer(5.5).timeout
+	
+	# spawner_1.add_child(health_kit.instantiate())
 	
 	#SCREAM 2
 	spawner_3.add_child(asteroid_2.instantiate())
@@ -401,6 +408,8 @@ func spawn():
 	await get_tree().create_timer(0.5).timeout
 	spawner_1.add_child(construct.instantiate())
 	await get_tree().create_timer(6).timeout
+	
+	# spawner_3.add_child(health_kit.instantiate())
 	
 	spawner_2.add_child(asteroid_2.instantiate())
 	await get_tree().create_timer(0.5).timeout
