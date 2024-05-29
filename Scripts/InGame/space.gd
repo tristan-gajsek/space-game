@@ -37,8 +37,9 @@ var music_paused_at
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	populate_background()
-	spawn()
 	hud_anim.play("3hp")
+	# spawn_alt()
+	spawn()
 	# Engine.time_scale = 1
 	# audio_player.pitch_scale = 1
 	
@@ -150,7 +151,23 @@ func spawn_alt():
 	var timer_seq = [1, 1, 1, 0, 1, 1, 1, 1, 0, 1.5, 0, 0.3, 0, 0.3, 0, 0.3, 0, 
 	0.4, 1, 0, 1, 0, 1.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 
 	1, 1, 1, 1, 1, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2.8, 1, 1, 1, 
-	1, 1, 1, 1, 1.1, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, ]
+	1, 1, 1, 1, 1.1, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 1, 1, 4, 0, 0, 0.5, 0, 0, 0.5, 
+	0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 5.5, 0, 0, 0.5, 0, 0, 0,5, 0, 
+	0, 0, 0, 0.5, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, 3.5, 0.3, 0.3, 1.7, 0.2, 0, 
+	0.8, 0.2, 0, 0.8, 1, 1, 0.5, 0.5, 0.5, 1, 1, 1, 0, 4, 2, 0, 2, 2, 0, 2, 1, 1,
+	1, 1, 5, 1, 1, 1, 1, 0.5, 1.5, 2, 0.5, 1.5, 2, 0.5, 6, 0.5, 0.5, 1, 0, 0.2, 
+	0, 0.2, 0.2, 0, 0.2, 0, 1, 0.5, 0, 0.5, 1, 0, 0.2, 0, 0.2, 0.2, 0, 0.2, 0, 
+	0.7, 0, 1, 3, 0, 2, 0.5, 1, 0.3, 0.3, 1.4, 1, 0.5, 0.8, 0.3, 0.3, 1.6, 5, 1, 
+	1, 1, 2, 0, 0, 0.5, 0, 0, 0.5, 0, 0, 0.5, 0, 0, 0.5, 0, 0, 0.5, 0, 0, 0.5, 0,
+	0, 0.5, 0.2]
+	
+	audio_player.play()
+	
+	for i in range(spawner_seq.size()):
+		print(i)
+		spawners[spawner_seq[i]].add_child(enemies[enemy_seq[i]].instantiate())
+		if timer_seq[i] > 0:
+			await get_tree().create_timer(timer_seq[i]).timeout
 
 func spawn():
 	audio_player.play()
