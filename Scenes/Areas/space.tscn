@@ -158,6 +158,7 @@ z_index = 6
 size_flags_horizontal = 4
 
 [node name="DevModeSlider" type="VSlider" parent="."]
+visible = false
 offset_left = 21.0
 offset_top = 157.0
 offset_right = 43.0

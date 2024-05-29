@@ -10,7 +10,7 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Skip"):
-		get_tree().change_scene_to_file("res://Scenes/Areas/space.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Menus/level_select_menu.tscn")
 
 func populate_background():
 	# Separate the screen into a rectangular grid of sections and put stars_per_section stars into each section
