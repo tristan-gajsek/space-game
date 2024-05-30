@@ -31,13 +31,6 @@ func _physics_process(_delta: float) -> void:
 		else:
 			print("Miss!")
 			
-		# TODO
-		# collision_particles_2.global_rotation = get_collision_normal().angle()
-		# collision_particles_2.position = cast_point
-		
-	# TODO
-	# beam_particle_2d.position = cast_point * 0.5
-	# beam_particle_2d.process_material.emission_box_extents.x = cast_point.length() * 0.5
 
 	if Input.is_action_pressed("ui_left"):
 		appear()
@@ -51,17 +44,10 @@ func update_line() -> void:
 			laser_1.get_collider().queue_free()
 			has_collided = true
 			AudioPlayer.hit() # This works
-			$Line2D.points[1] = collision_point
 			print("Hit")
-	else:
-		$Line2D.points[1] = target_position
-	appear()
 
 func appear() -> void:
-	var tween = create_tween()
-	tween.tween_property($Line2D, "width", 3.0, 0.01)
+	pass
 
 func disapear() -> void:
-	var tween = create_tween()
-	tween.tween_property($Line2D, "width", 0, 0.05)
 	has_collided = false
