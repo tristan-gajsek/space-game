@@ -9,7 +9,6 @@ var collision_point: Vector2
 
 func _ready():
 	is_casting = false
-	$Line2D.width = 0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
