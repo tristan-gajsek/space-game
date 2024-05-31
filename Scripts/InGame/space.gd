@@ -28,6 +28,7 @@ var music_paused_at
 @onready var planet_fiery = preload("res://Scenes/Background/Planet/fiery.tscn")
 @onready var planet_home = preload("res://Scenes/Background/Planet/home.tscn")
 @onready var planet_shattered = preload("res://Scenes/Background/Planet/shattered.tscn")
+@onready var planet_sandy = preload("res://Scenes/Background/Planet/sandy.tscn")
 @onready var black_hole = preload("res://Scenes/Background/Planet/black_hole.tscn")
 @onready var health_kit = preload("res://Scenes/Misc/health_kit.tscn")
 
@@ -75,16 +76,17 @@ func populate_background():
 				add_child(star_instance)
 	
 	# Add planets
-	for i in range(4):
+	for i in range(5):
 		var planet
 		match i:
 			0: planet = planet_fiery.instantiate()
 			1: planet = planet_home.instantiate()
 			2: planet = planet_shattered.instantiate()
+			3: planet = planet_sandy.instantiate()
 			_: planet = black_hole.instantiate()
 		
 		var planet_size: Vector2
-		if i == 3:
+		if i == 4:
 			planet_size = Vector2(50, 50)
 		else:
 			planet_size = planet.get_node("Sprite2D").get_rect().size
