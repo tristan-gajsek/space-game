@@ -39,8 +39,8 @@ var music_paused_at
 func _ready():
 	populate_background()
 	hud_anim.play("3hp")
-	# spawn_alt()
-	spawn()
+	spawn_alt()
+	# spawn()
 	# Engine.time_scale = 1
 	# audio_player.pitch_scale = 1
 	
@@ -166,9 +166,9 @@ func spawn_alt():
 	audio_player.play()
 	
 	for i in range(spawner_seq.size()):
-		print(i)
+		print(timer_seq[i])
 		spawners[spawner_seq[i]].add_child(enemies[enemy_seq[i]].instantiate())
-		if timer_seq[i] > 0:
+		if timer_seq[i] != 0:
 			await get_tree().create_timer(timer_seq[i]).timeout
 
 func spawn():
