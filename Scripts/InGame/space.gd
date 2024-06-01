@@ -4,6 +4,11 @@ const WIDTH = 960
 const HEIGHT = 540
 
 @onready var hud_anim = $HUD
+@onready var victory_screen = $victory
+
+# Game over variables
+@onready var game_over_screen = $game_over
+var over = false
 
 # Pause menu variables
 @onready var pause_menu = $PauseMenu
@@ -39,8 +44,8 @@ var music_paused_at
 func _ready():
 	populate_background()
 	hud_anim.play("3hp")
-	spawn_alt()
-	# spawn()
+	# spawn_alt()
+	spawn()
 	# Engine.time_scale = 1
 	# audio_player.pitch_scale = 1
 	
@@ -99,7 +104,10 @@ func populate_background():
 		add_child(planet)
 
 func level_complete():
-	pass
+	if !over:
+		over = true
+		audio_player.stop()
+		victory_screen.show()
 
 func game_paused():
 	if paused:
@@ -118,9 +126,12 @@ func game_paused():
 	paused = !paused
 
 func _on_player_death():
-	get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
+	over = true
+	audio_player.stop()
+	game_over_screen.show()
+	# get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
 
-func _on_pause_menu_quit():
+func _on_quit():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
 
@@ -166,10 +177,13 @@ func spawn_alt():
 	audio_player.play()
 	
 	for i in range(spawner_seq.size()):
-		print(timer_seq[i])
+		if over:
+			return
 		spawners[spawner_seq[i]].add_child(enemies[enemy_seq[i]].instantiate())
 		if timer_seq[i] != 0:
 			await get_tree().create_timer(timer_seq[i]).timeout
+	
+	level_complete()
 
 func spawn():
 	audio_player.play()

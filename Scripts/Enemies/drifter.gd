@@ -19,7 +19,7 @@ func _ready():
 	wake()
 
 func destroy():
-	print("Drifter destroyed")
+	# print("Drifter destroyed")
 	queue_free()
 
 func wake():

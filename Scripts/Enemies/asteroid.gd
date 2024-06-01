@@ -10,5 +10,5 @@ func _physics_process(delta):
 	rotation += ROTATION_SPEED * delta
 
 func destroy():
-	print("Asteroid destroyed")
+	# print("Asteroid destroyed")
 	queue_free()

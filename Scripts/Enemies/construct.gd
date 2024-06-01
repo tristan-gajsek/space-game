@@ -13,7 +13,7 @@ func _ready():
 	enemy_anim.play("default")
 
 func destroy():
-	print("Construct destroyed")
+	# print("Construct destroyed")
 	queue_free()
 
 func _on_tree_exited():

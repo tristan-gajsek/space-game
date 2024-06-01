@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://v8ukpxtnnwco"]
+[gd_scene load_steps=23 format=3 uid="uid://v8ukpxtnnwco"]
 
 [ext_resource type="Script" path="res://Scripts/InGame/space.gd" id="1_qp8ks"]
 [ext_resource type="PackedScene" uid="uid://c1xeawqt3lqjn" path="res://Scenes/Players/player.tscn" id="2_qxe0n"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://byqgu7a2xtti0" path="res://Assets/Misc/space hud.png" id="8_k86ii"]
 [ext_resource type="PackedScene" uid="uid://14v8bh3rg2b1" path="res://Scenes/Misc/valid_hit_area.tscn" id="8_tq8p6"]
 [ext_resource type="Script" path="res://Scripts/Misc/DevModeSlider.gd" id="10_cm6s1"]
+[ext_resource type="PackedScene" uid="uid://cd61244mt424o" path="res://Scenes/Menus/game_over.tscn" id="11_v61bi"]
+[ext_resource type="PackedScene" uid="uid://dmmdcwlrejgme" path="res://Scenes/Menus/victory.tscn" id="12_2in7t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pvk53"]
 atlas = ExtResource("8_k86ii")
@@ -166,9 +168,17 @@ offset_bottom = 386.0
 max_value = 5.0
 script = ExtResource("10_cm6s1")
 
+[node name="game_over" parent="." instance=ExtResource("11_v61bi")]
+visible = false
+
+[node name="victory" parent="." instance=ExtResource("12_2in7t")]
+visible = false
+
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="hp_at_1" from="Player" to="." method="_on_player_hp_at_1"]
 [connection signal="hp_at_2" from="Player" to="." method="_on_player_hp_at_2"]
-[connection signal="quit" from="PauseMenu" to="." method="_on_pause_menu_quit"]
+[connection signal="quit" from="PauseMenu" to="." method="_on_quit"]
 [connection signal="value_changed" from="DevModeSlider" to="." method="_on_dev_mode_slider_value_changed"]
 [connection signal="value_changed" from="DevModeSlider" to="DevModeSlider" method="_on_value_changed"]
+[connection signal="quit" from="game_over" to="." method="_on_quit"]
+[connection signal="quit" from="victory" to="." method="_on_quit"]

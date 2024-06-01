@@ -78,8 +78,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -171.5
+offset_top = 70.0
 offset_right = 171.5
-offset_bottom = 83.0
+offset_bottom = 153.0
 grow_horizontal = 2
 text = "GAME OVER"
 label_settings = SubResource("LabelSettings_ygrmx")
@@ -120,3 +121,4 @@ layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
