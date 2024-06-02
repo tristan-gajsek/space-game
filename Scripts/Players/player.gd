@@ -53,7 +53,11 @@ func die():
 	emit_signal("death")
 	queue_free()
 	
-# Collision detection with enemy
+# Collision detection with asteroids
 func _on_area_2d_area_entered(area):
-	if area.is_in_group("Enemy") or area.is_in_group("Asteroid"):
+	if area.is_in_group("Asteroid"):
 		take_damage(1)
+
+
+func _on_destructor_player_damage():
+	take_damage(1)

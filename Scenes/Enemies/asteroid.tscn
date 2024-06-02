@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yeikj"]
 size = Vector2(18, 21)
 
-[node name="Asteroid" type="CharacterBody2D"]
+[node name="Asteroid" type="CharacterBody2D" groups=["Asteroid"]]
 z_index = 4
 scale = Vector2(1.5, 1.5)
 collision_layer = 4

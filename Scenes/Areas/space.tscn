@@ -117,7 +117,7 @@ z_index = 3
 position = Vector2(480, 470)
 
 [node name="Destructor" parent="." instance=ExtResource("6_b2t4n")]
-position = Vector2(448, 645)
+position = Vector2(487, 597)
 
 [node name="Spawner1" type="Node2D" parent="."]
 z_index = 2
@@ -177,6 +177,7 @@ visible = false
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="hp_at_1" from="Player" to="." method="_on_player_hp_at_1"]
 [connection signal="hp_at_2" from="Player" to="." method="_on_player_hp_at_2"]
+[connection signal="player_damage" from="Destructor" to="Player" method="_on_destructor_player_damage"]
 [connection signal="quit" from="PauseMenu" to="." method="_on_quit"]
 [connection signal="value_changed" from="DevModeSlider" to="." method="_on_dev_mode_slider_value_changed"]
 [connection signal="value_changed" from="DevModeSlider" to="DevModeSlider" method="_on_value_changed"]

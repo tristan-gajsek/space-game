@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07d4p"]
 size = Vector2(25, 29)
 
-[node name="Asteroid2Right" type="CharacterBody2D"]
+[node name="Asteroid2Right" type="CharacterBody2D" groups=["Asteroid"]]
 z_index = 4
 texture_filter = 1
 scale = Vector2(1.5, 1.5)
