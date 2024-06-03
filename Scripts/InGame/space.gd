@@ -572,31 +572,24 @@ func spawn():
 	await get_tree().create_timer(2).timeout
 	
 	spawner_1.add_child(asteroid_2_r.instantiate())
-	spawner_2.add_child(asteroid_2_r.instantiate())
 	spawner_3.add_child(asteroid_2_r.instantiate())
 	await get_tree().create_timer(0.5).timeout
 	spawner_5.add_child(asteroid_2.instantiate())
-	spawner_4.add_child(asteroid_2.instantiate())
 	spawner_3.add_child(asteroid_2.instantiate())
 	await get_tree().create_timer(0.5).timeout
 	spawner_2.add_child(asteroid_2_r.instantiate())
-	spawner_3.add_child(asteroid_2_r.instantiate())
 	spawner_4.add_child(asteroid_2_r.instantiate())
 	await get_tree().create_timer(0.5).timeout
 	spawner_2.add_child(asteroid_2.instantiate())
-	spawner_3.add_child(asteroid_2.instantiate())
 	spawner_4.add_child(asteroid_2.instantiate())
 	await get_tree().create_timer(0.5).timeout
 	spawner_1.add_child(asteroid_2_r.instantiate())
-	spawner_2.add_child(asteroid_2_r.instantiate())
 	spawner_3.add_child(asteroid_2_r.instantiate())
 	await get_tree().create_timer(0.5).timeout
 	spawner_5.add_child(asteroid_2.instantiate())
-	spawner_4.add_child(asteroid_2.instantiate())
 	spawner_3.add_child(asteroid_2.instantiate())
 	await get_tree().create_timer(0.5).timeout
 	spawner_1.add_child(asteroid.instantiate())
-	spawner_3.add_child(asteroid.instantiate())
 	spawner_5.add_child(asteroid.instantiate())
 	await get_tree().create_timer(0.5).timeout
 	spawner_2.add_child(asteroid.instantiate())
