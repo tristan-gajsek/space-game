@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://v8ukpxtnnwco"]
+[gd_scene load_steps=25 format=3 uid="uid://v8ukpxtnnwco"]
 
 [ext_resource type="Script" path="res://Scripts/InGame/space.gd" id="1_qp8ks"]
 [ext_resource type="PackedScene" uid="uid://c1xeawqt3lqjn" path="res://Scenes/Players/player.tscn" id="2_qxe0n"]
@@ -94,6 +94,15 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_4elab"]
+offsets = PackedFloat32Array(0, 0.798742)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6t3vw"]
+gradient = SubResource("Gradient_4elab")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Space" type="Node"]
 script = ExtResource("1_qp8ks")
 
@@ -146,12 +155,37 @@ bus = &"Music"
 visible = false
 
 [node name="HUD" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.470076, 0.470076, 0.470076, 1)
 z_index = 300
 texture_filter = 1
 position = Vector2(480.5, 269.5)
 scale = Vector2(2.99687, 2.99444)
 sprite_frames = SubResource("SpriteFrames_17tto")
 animation = &"3hp"
+
+[node name="PointLight2D" type="PointLight2D" parent="HUD"]
+z_index = 300
+position = Vector2(38.5402, -72.3007)
+color = Color(0.611765, 0.858824, 0.262745, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_6t3vw")
+offset = Vector2(100, 0)
+
+[node name="PointLight2D2" type="PointLight2D" parent="HUD"]
+z_index = 300
+position = Vector2(-240.084, 73.9704)
+color = Color(0.611765, 0.858824, 0.262745, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_6t3vw")
+offset = Vector2(100, 0)
+
+[node name="PointLight2D3" type="PointLight2D" parent="HUD"]
+z_index = 300
+position = Vector2(37.8728, 72.6346)
+color = Color(0.611765, 0.858824, 0.262745, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_6t3vw")
+offset = Vector2(100, 0)
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_3r1dq")]
 process_mode = 2
